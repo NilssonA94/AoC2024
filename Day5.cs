@@ -21,10 +21,7 @@ public class Day5 : Day
                 continue;
             }
 
-            if (isRules)
-            {
-                    rules.Add(line);
-            }
+            if (isRules) rules.Add(line);
             else
             {
                 string[] numbers = line.Split(',');
@@ -33,13 +30,8 @@ public class Day5 : Day
                 {
                     if (rules.Contains(numbers[i + 1] + "|" + numbers[i]))
                     {
-                        List<string> sortedNumbers = [.. numbers];
-                        sortedNumbers.Sort((a, b) =>
-                        {
-                            string rule = a + "|" + b;
-                            return rules.Contains(rule) ? -1 : 1;
-                        });
-                        Result2 += Int32.Parse(sortedNumbers[numbers.Length / 2]);
+                        Array.Sort(numbers, (a, b) => rules.Contains(a + "|" + b) ? -1 : 1);
+                        Result2 += Int32.Parse(numbers[numbers.Length / 2]);
                         isValid = false;
                         break;
                     }
