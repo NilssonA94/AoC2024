@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace AoC2024;
 
@@ -9,9 +8,6 @@ public class Day8 : Day
     public override long Expected2 { get; set; } = 34;
     public override void Run()
     {
-        Result1 = 0;
-        Result2 = 0;
-
         Dictionary<(int line, int index), char> antennas = [];
         Dictionary<(int line, int index), char> existingAntennas = [];
         Collection<(int, int)> firsts = [];
