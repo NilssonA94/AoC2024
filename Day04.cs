@@ -1,6 +1,6 @@
 ﻿namespace AoC2024;
 
-public class Day4 : Day
+public class Day04 : Day
 {
     public override long Expected1 { get; set; } = 18;
     public override long Expected2 { get; set; } = 9;
@@ -24,8 +24,6 @@ public class Day4 : Day
         int reversedHorizontals = CheckHorizontal(Input, reversedWord, lastLetterIndexes);
         int reversedDescendingDiagonals = CheckDescendingDiagonal(Input, reversedWord, lastLetterIndexes);
         int reversedAscendingDiagonals = CheckAscendingDiagonal(Input, reversedWord, lastLetterIndexes);
-        Console.WriteLine($"Verticals: {verticals}, Horizontals: {horizontals}, Descending diagonals: {descendingDiagonals}, Ascending diagonals: {ascendingDiagonals}");
-        Console.WriteLine($"Reversed verticals: {reversedVerticals}, Reversed horizontals: {reversedHorizontals}, Reversed descending diagonals: {reversedDescendingDiagonals}, Reversed ascending diagonals: {reversedAscendingDiagonals}");
 
         Result1 = verticals + horizontals + descendingDiagonals + ascendingDiagonals + reversedVerticals + reversedHorizontals + reversedDescendingDiagonals + reversedAscendingDiagonals;
         Result2 = CheckCrossMAS(indexOfA, Input);

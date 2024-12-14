@@ -1,6 +1,6 @@
 ﻿namespace AoC2024;
 
-public class Day3 : Day
+public class Day03 : Day
 {
     public override long Expected1 { get; set; } = 161;
     public override long Expected2 { get; set; } = 48;
@@ -75,7 +75,6 @@ public class Day3 : Day
                     if (int.TryParse(firstNumberString, out int num1) && int.TryParse(secondNumberString.ToString(), out int num2))
                     {
                         product += num1 * num2;
-                        Console.WriteLine($"mul({num1},{num2}) {num1 * num2}");
                     }
                 }
             }
@@ -158,7 +157,6 @@ public class Day3 : Day
                         if (int.TryParse(firstNumberString, out int num1) && int.TryParse(secondNumberString.ToString(), out int num2))
                         {
                             product += num1 * num2;
-                            Console.WriteLine($"mul({num1},{num2}) {num1 * num2}");
                         }
                     }
                 }

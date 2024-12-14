@@ -1,6 +1,6 @@
 ﻿namespace AoC2024;
 
-public class Day7 : Day
+public class Day07 : Day
 {
     public override long Expected1 { get; set; } = 3749;
     public override long Expected2 { get; set; } = 11387;
