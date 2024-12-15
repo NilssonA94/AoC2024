@@ -138,7 +138,7 @@ public class Day06 : Day
         while (isGuardPresent)
         {
             if ((direction == 0 && guard.Item1 - 1 < 0) ||
-            (direction == 1 && guard.Item2 + 1 >= input[guard.Item1].Length) ||
+                (direction == 1 && guard.Item2 + 1 >= input[guard.Item1].Length) ||
                 (direction == 2 && guard.Item1 + 1 >= input.Length) ||
                 (direction == 3 && guard.Item2 - 1 < 0))
             {
