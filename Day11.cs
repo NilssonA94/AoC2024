@@ -1,4 +1,5 @@
 ﻿namespace AoC2024;
+
 public class Day11 : Day
 {
     public override long Expected1 { get; set; } = 22;
@@ -6,7 +7,6 @@ public class Day11 : Day
     public Dictionary<long, (long first, long second)> cache = [];
     public override void Run()
     {
-        cache.Clear();
         Dictionary<long, long> stones = [];
         foreach (var stone in Input[0].Split(" ", StringSplitOptions.RemoveEmptyEntries))
         {
@@ -16,13 +16,11 @@ public class Day11 : Day
         for (int i = 0; i < 75; i++)
         {
             stones = Blink(stones);
-
             if (i == 5)
             {
                 Result1 = stones.Values.Sum();
                 Result2 = stones.Values.Sum();
             }
-
             if (i == 24) Console.WriteLine("The real answer for Result1 is: " + stones.Values.Sum());
         }
         Console.WriteLine("The real answer for Result2 is: " + stones.Values.Sum());
@@ -37,7 +35,6 @@ public class Day11 : Day
             {
                 stonesAfterBlink[1] = stonesAfterBlink.TryGetValue(1, out long value) ? value + stone.Value : stone.Value;
                 continue;
-
             }
 
             if (cache.TryGetValue(stone.Key, out var halves))
