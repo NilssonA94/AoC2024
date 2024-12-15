@@ -2,11 +2,11 @@
 
 public class Day11 : Day
 {
-    public override long Expected1 { get; set; } = 22;
-    public override long Expected2 { get; set; } = 22;
-    public Dictionary<long, (long first, long second)> cache = [];
+    public override long Expected1 { get; set; } = 55312;
+    public override long Expected2 { get; set; } = 65601038650482;
     public override void Run()
     {
+        Dictionary<long, (long first, long second)> cache = [];
         Dictionary<long, long> stones = [];
         foreach (var stone in Input[0].Split(" ", StringSplitOptions.RemoveEmptyEntries))
         {
@@ -15,18 +15,13 @@ public class Day11 : Day
 
         for (int i = 0; i < 75; i++)
         {
-            stones = Blink(stones);
-            if (i == 5)
-            {
-                Result1 = stones.Values.Sum();
-                Result2 = stones.Values.Sum();
-            }
-            if (i == 24) Console.WriteLine("The real answer for Result1 is: " + stones.Values.Sum());
+            (stones, cache) = Blink(stones, cache);
+            if (i == 24) Result1 = stones.Values.Sum();
         }
-        Console.WriteLine("The real answer for Result2 is: " + stones.Values.Sum());
+        Result2 = stones.Values.Sum();
     }
 
-    public Dictionary<long, long> Blink(Dictionary<long, long> stones)
+    public static (Dictionary<long, long>, Dictionary<long, (long first, long second)>) Blink(Dictionary<long, long> stones, Dictionary<long, (long first, long second)> cache)
     {
         Dictionary<long, long> stonesAfterBlink = [];
         foreach (var stone in stones)
@@ -72,7 +67,7 @@ public class Day11 : Day
             stonesAfterBlink.TryAdd(stone.Key * 2024, 0);
             stonesAfterBlink[stone.Key * 2024] += stone.Value;
         }
-        return stonesAfterBlink;
+        return (stonesAfterBlink, cache);
     }
 
     public static long CountDigits(long stone)

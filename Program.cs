@@ -1,1 +1,1 @@
-﻿_ = new AoC2024.Day11();
+﻿_ = new AoC2024.Day12();
